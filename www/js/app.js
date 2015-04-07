@@ -1,4 +1,5 @@
-
+(function(){
+  'use strict';
   var module = angular.module('app', ['onsen']);
 var misDatos;
   module.controller('AppController', function($scope, $data) {
@@ -44,4 +45,5 @@ var misDatos;
       
       return data;
   });
+})();
 
