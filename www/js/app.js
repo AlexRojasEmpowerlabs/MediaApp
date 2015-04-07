@@ -11,7 +11,7 @@ var misDatos;
   });
 
   module.controller('DetailController', function($scope) {
-    $scope.ons.notification.alert({message: ""+misDatos.url,title: "intellibanks"});
+    //$scope.ons.notification.alert({message: ""+misDatos.url,title: "intellibanks"});
     $scope.url = misDatos.url;
   });
 

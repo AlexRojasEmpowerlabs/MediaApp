@@ -14,11 +14,13 @@
   <script src="lib/onsen/js/angular/angular.js"></script>    
   <script src="lib/onsen/js/onsenui.js"></script>    
   
-  <script src="phonegap.js"></script>  
+  <script src="cordova.js"></script>  
   <script src="js/app.js"></script>  
   <script>
     ons.ready(function() {
     });
+    
+  	navigator.splashscreen.hide();
   </script>
 
   <style>
@@ -92,8 +94,32 @@
       <ons-toolbar>
         <div class="center">Prueba Micro contenido</div>
       </ons-toolbar>
-
       <ons-list ng-controller="MasterController">
+      <ons-list-item>
+      
+<ons-list style="margin-top: 10px">
+							<ons-list-item class="item">
+								<header>
+									<span class="item-title">{{item.nombre}}</span>
+								</header>
+								<p class="item-desc">
+									{{item.descripcion}}
+								</p>
+								<p class="item-desc">
+									<strong>Por: </strong>{{item.autor}}
+								</p>
+								<p class="item-desc">
+									<strong>Aporto: </strong>{{item.aporto}}
+								</p>
+								<p class="item-desc">
+									<strong>Formato:: </strong>{{item.formato}}
+								</p>
+								<p class="item-desc">
+									<strong>Status: </strong>{{item.estatus}}
+								</p>
+							</ons-list-item>
+						</ons-list>
+      </ons-list-item>
      	<ons-list-item class="item" modifier="chevron" ng-click="video(item)">Video</ons-list-item>
      	<ons-list-item class="item" modifier="chevron" ng-click="audio()">Audio</ons-list-item>
      	<ons-list-item class="item" modifier="chevron" ng-click="texto()">Texto</ons-list-item>
