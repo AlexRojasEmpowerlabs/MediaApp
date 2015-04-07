@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="styles/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="styles/app.css"/>
+
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>    
+  
+  <script src="cordova.js"></script>  
+  <script src="js/app.js"></script>  
+  <script>
+    ons.ready(function() {
+    });
+  </script>
+
+  <style>
+    .item {
+      padding: 10px;
+      line-height: 1;
+    }
+    .item-thum {
+      background-color: #ccc;
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+    }
+    .item-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .item-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.3;
+      margin: 4px 0 0 0;
+      padding: 0 30px 0 0;
+    }
+    .item-label {
+      font-size: 12px;
+      color: #999;
+      float: right;
+    }
+  </style>
+</head>
+
+<body ng-controller="AppController">    
+	
+		<ons-sliding-menu
+		menu-page="menu.html" main-page="page1.html" swipeable="false" draggable="false" side="left"
+		var="menu" type="reveal" max-slide-distance="260px"></ons-sliding-menu>
+
+		<ons-template id="menu.html">
+			<ons-page modifier="menu-page">
+				<!--<ons-toolbar modifier="transparent" class="custom-azul"></ons-toolbar>-->
+
+				<ons-list class="menu-list">
+					<div class="status-bar-div"></div>
+					<ons-list-item>
+
+					</ons-list-item>
+
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('page1.html', {closeMenu: true})">
+						<ons-icon icon="ion-home custom-icon"></ons-icon>
+						<strong>Servicios</strong>
+					</ons-list-item>
+
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('page2.html', {closeMenu: true})">
+						<ons-icon icon="ion-home custom-icon"></ons-icon>
+						<strong>Recepción</strong>
+					</ons-list-item>
+
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('page3.html', {closeMenu: true})">
+						<ons-icon icon="ion-filing"></ons-icon>
+						<strong>Mesa de trabajo</strong>
+					</ons-list-item>
+
+				</ons-list>
+			</ons-page>
+		</ons-template>
+
+<ons-template id="page1.html">
+  <ons-navigator animation="slide" var="app.navi">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Prueba Micro contenido</div>
+      </ons-toolbar>
+
+      <ons-list ng-controller="MasterController">
+     	<ons-list-item class="item" modifier="chevron" ng-click="video()">Video</ons-list-item>
+     	<ons-list-item class="item" modifier="chevron" ng-click="audio()">Audio</ons-list-item>
+     	<ons-list-item class="item" modifier="chevron" ng-click="texto()">Texto</ons-list-item>
+     	<ons-list-item class="item" modifier="chevron" ng-click="presentacion()">Presentación</ons-list-item>
+      </ons-list>
+
+    </ons-page>
+  </ons-navigator>
+</ons-template>
+<ons-template id="page2.html">
+    <ons-page>
+      <ons-toolbar>
+      <div class="left">
+						<ons-back-button>
+						back
+						</ons-back-button>
+					</div>
+        <div class="center">Prueba Micro video</div>
+      </ons-toolbar>
+ <ons-list style="margin-top: 10px">
+      <ons.list-item class="item" style=" text-align: center">
+      <iframe controls
+  src="http://www.youtube.com/embed/scRWvWvB5wE" style="height: 250px; width: 95%;">
+Your user agent does not support the HTML5 Video element.
+</iframe>
+      </ons.list-item>
+      </ons-list>
+    </ons-page>
+</ons-template>
+<ons-template id="page3.html">
+    <ons-page>
+      <ons-toolbar>
+      <div class="left">
+						<ons-back-button>
+						back
+						</ons-back-button>
+					</div>
+        <div class="center">Prueba Micro audio</div>
+      </ons-toolbar>
+ <ons-list style="margin-top: 10px">
+      <ons.list-item class="item" style=" text-align: center">
+      <audio controls>
+  <source src="http://empowerlabs.com/archivos/elabs/labs2015/graba/GrabacionEricBaez01-04-2015/GrabacionEricBaez01-04-2015.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+      </ons.list-item>
+      </ons-list>
+    </ons-page>
+</ons-template>
+<ons-template id="page4.html">
+    <ons-page>
+      <ons-toolbar>
+      <div class="left">
+						<ons-back-button>
+						back
+						</ons-back-button>
+					</div>
+        <div class="center">Prueba Micro texto</div>
+      </ons-toolbar>
+ <ons-list style="margin-top: 10px">
+        
+     
+      <ons-list-item class="item">
+    
+        <ons-list-item class="item" ng-repeat="i in [1,2,3]">
+          <header>
+            <span class="item-title">Contenido de prueba</span>
+          </header>
+          <p class="item-desc">Esta versión inicial tiene la problemática de la complejidad en el desarrollo del contenido. Se uso implementando un template de Wordpress que es bastante amigable con los móviles, pero que no tiene la versatilidad para la creación de contenido ni la versatilidad para su despliegue en móviles.</p>
+        </ons-list-item>
+      </ons-list>
+    </ons-page>
+</ons-template>
+<ons-template id="page5.html">
+    <ons-page>
+      <ons-toolbar>
+      <div class="left">
+						<ons-back-button>
+						back
+						</ons-back-button>
+					</div>
+        <div class="center">Prueba Micro Presentación</div>
+       
+      </ons-toolbar>
+ <ons-list style="margin-top: 10px">
+      <ons.list-item class="item" style=" text-align: center">
+        <div style="width: 100%; height: 430px;background-color:White; overflow: hidden;">
+      <iframe src="//www.slideshare.net/slideshow/embed_code/46732684?rel=0" style='width="80%"' height="467" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+      </div>
+      </ons-list-item>
+      </ons.list-item>
+      </ons-list>
+    </ons-page>
+</ons-template>
+</body>  
+</html>
