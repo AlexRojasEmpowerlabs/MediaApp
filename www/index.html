@@ -94,7 +94,7 @@
       </ons-toolbar>
 
       <ons-list ng-controller="MasterController">
-     	<ons-list-item class="item" modifier="chevron" ng-click="video()">Video</ons-list-item>
+     	<ons-list-item class="item" modifier="chevron" ng-click="video(item)">Video</ons-list-item>
      	<ons-list-item class="item" modifier="chevron" ng-click="audio()">Audio</ons-list-item>
      	<ons-list-item class="item" modifier="chevron" ng-click="texto()">Texto</ons-list-item>
      	<ons-list-item class="item" modifier="chevron" ng-click="presentacion()">Presentación</ons-list-item>
@@ -115,8 +115,8 @@
       </ons-toolbar>
  <ons-list style="margin-top: 10px">
       <ons.list-item class="item" style=" text-align: center">
-      <iframe controls
-  src="http://www.youtube.com/embed/scRWvWvB5wE" style="height: 250px; width: 95%;">
+      <iframe   ng-controller="DetailController" controls
+  src="{{url}}" style="height: 250px; width: 95%;">
 Your user agent does not support the HTML5 Video element.
 </iframe>
       </ons.list-item>
